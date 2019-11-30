@@ -1,5 +1,4 @@
 //$aapl.price --> example of user input
-//$twtr.news --> example of user input
 
 import java.net.URLConnection;
 import java.net.URL;
@@ -12,6 +11,7 @@ class test{
 public static void main (String args []){
 
 String query = "https://cloud.iexapis.com/v1/stock/aapl/quote/latestPrice?token="
+String token; 
 
 try{
 //connection tunnel
