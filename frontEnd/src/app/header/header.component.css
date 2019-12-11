@@ -1,4 +1,31 @@
 #container{
     background-color: #3c98ce;
-    min-height: 25%;
+    border-radius: 5px;
+    min-height:17vh;
+    position:relative;
+}
+
+#button_container{
+    bottom: 0px;
+    position:absolute;
+    display:inline-flex;
+    flex-direction: row;
+}
+
+.button{
+    margin:0rem .2em 0rem .2em;
+}
+
+.signIn_dropDown_fields{
+    display:none;
+    z-index:1;
+}
+
+#signIn_dropDown_container:hover .signIn_dropDown_fields {
+    display:block;
+    position:absolute;
+}
+
+.signIn_dropDown_fields input {
+    display: block;
 }
