@@ -15,7 +15,7 @@
 }
 
 .button{
-    margin:0rem .2em 0rem .2em;
+    margin:0rem 7em 0rem 0em;
 }
 
 .signIn_dropDown_fields{
@@ -29,4 +29,7 @@
 
 .signIn_dropDown_fields input {
     display: block;
+}
+#signedIn_WelcomeMessage{
+    display:none;
 }

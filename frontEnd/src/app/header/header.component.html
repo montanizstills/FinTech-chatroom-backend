@@ -3,15 +3,15 @@
         <div id="signInText" class="button">
             <div id=signIn_dropDown_container>
                 Sign In
-                <form class="signIn_dropDown_fields">
-                    <input type="text" value="username">
-                    <input type="text" value="password">
-                    <input type="text" value="email">
+                <form class="signIn_dropDown_fields" id="form" onsubmit="submit()" [(ngForm)]="form">
+                    <input type="text" value="username" [(ngModel)]="usernameInput">
+                    <input type="text" value="password" [(ngModel)]="passwordInput">
+                    <input type="text" value="email" [(ngModel)]="emailInput">
                 </form>
-            
             </div>
         </div>
-        <div  class="button" ><a routerLink="contact" >Other</a></div>
-        <div  class="button" ><a routerLink="">Home</a></div>
+        <div class="button" ><a routerLink="contact" >Other</a></div>
+        <div class="button" ><a routerLink="home">Home</a></div>
+        <div id="signedIn_WelcomeMessage">Welcome: Montaniz</div>
     </div>
 </div>

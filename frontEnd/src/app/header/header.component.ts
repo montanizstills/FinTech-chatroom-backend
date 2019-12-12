@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  
 
-  ngOnInit() {
+  constructor(){}
+  ngOnInit() {}
+
+   //form:HTMLElement  = document.getElementById("form");
+   
+  submit():void{
+    alert("submit function working.");
   }
+  //username:String=document.getElementById("username").value;
+
+  if (usernameInput>""){}
 
 }
