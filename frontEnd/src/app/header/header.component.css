@@ -2,7 +2,9 @@
     background-color: #3c98ce;
     border-radius: 5px;
     min-height:17vh;
+    width:100%;
     position:relative;
+    
 }
 
 #button_container{
@@ -18,7 +20,6 @@
 
 .signIn_dropDown_fields{
     display:none;
-    z-index:1;
 }
 
 #signIn_dropDown_container:hover .signIn_dropDown_fields {
