@@ -3,15 +3,35 @@
         <div id="signInText" class="button">
             <div id=signIn_dropDown_container>
                 Sign In
-                <form class="signIn_dropDown_fields" id="form" onsubmit="submit()" [(ngForm)]="form">
-                    <input type="text" value="username" [(ngModel)]="usernameInput">
-                    <input type="text" value="password" [(ngModel)]="passwordInput">
-                    <input type="text" value="email" [(ngModel)]="emailInput">
-                </form>
+                <app-sign-in id="signInComponent"></app-sign-in>
             </div>
         </div>
-        <div class="button" ><a routerLink="contact" >Other</a></div>
         <div class="button" ><a routerLink="home">Home</a></div>
+        <div class="button" ><a routerLink="contact" >Other</a></div>
         <div id="signedIn_WelcomeMessage">Welcome: Montaniz</div>
     </div>
 </div>
+<!--
+    if(
+     !username.$pristine && !password.$pristine && 
+     username.$valid && password.$valid) &&
+     email.$invalid
+    -- > convert "signIn" to <button>signUp</button> and turn it green
+    else
+    -- > convert "signIn" to <button>signUp</button> and turn it red
+    -- > signUp() //pass username && password, prefill with {{username,password}}
+-->
+<!--
+    // enter username and password
+    // onSubmit() -- > create new account();
+    // store account data in root? app-component
+-->
+<!--
+    // if not signed in && text in chatbox
+    -- > disableChatBox()
+    -- > promt user to signIn() or register()
+    -- > reset()
+    -- > signedIn = true;
+    -- > display "Welcome {{account.username}}"
+-->
+

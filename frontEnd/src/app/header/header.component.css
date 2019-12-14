@@ -18,18 +18,16 @@
     margin:0rem 7em 0rem 0em;
 }
 
-.signIn_dropDown_fields{
+#signInComponent{
     display:none;
 }
 
-#signIn_dropDown_container:hover .signIn_dropDown_fields {
+#signIn_dropDown_container:hover  #signInComponent{
     display:block;
     position:absolute;
 }
 
-.signIn_dropDown_fields input {
-    display: block;
-}
-#signedIn_WelcomeMessage{
+
+/*#signedIn_WelcomeMessage{
     display:none;
-}
+}*/

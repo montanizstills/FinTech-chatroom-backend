@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Account} from '../account';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  
-
   constructor(){}
   ngOnInit() {}
+  
 
    //form:HTMLElement  = document.getElementById("form");
    
@@ -19,6 +19,6 @@ export class HeaderComponent implements OnInit {
   }
   //username:String=document.getElementById("username").value;
 
-  if (usernameInput>""){}
+  
 
 }

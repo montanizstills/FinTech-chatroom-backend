@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,15 +6,15 @@ import { Component, AfterViewInit, ElementRef } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements AfterViewInit{
-  constructor(private elementRef: ElementRef){ }
+export class AppComponent {
+  constructor(){ }
 
  public getColor(color: string): string {
     return color;
   }
-
- ngAfterViewInit () {
+// avoid accessing DOM directly, avoid ElementRef, xss attacks!
+ /*ngAfterViewInit () {
     this.elementRef.nativeElement.ownerDocument.body.style.backgroundColor = this.getColor("black");
- }
+ }*/
  title = 'UI';
 }
