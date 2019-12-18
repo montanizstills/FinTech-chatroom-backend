@@ -1,17 +1,21 @@
 <div id="container">
-    <div id="button_container">
+    <div id="nav_container">
         <div id="signInText" class="button">
             <div id=signIn_dropDown_container>
-                Sign In
-                <app-sign-in id="signInComponent"></app-sign-in>
+                <button id="signInButton" ([ngStyle])="validate()" >Sign In</button>
+                <form #login="ngForm" (keypress)="onSubmit(login)">
+                    <input type="text" name="username" placeholder="Please enter your username" ngModel>
+                    <input type="text" name="password" placeholder="Please enter your password" ngModel>
+                </form>
             </div>
         </div>
-        <div class="button" ><a routerLink="home">Home</a></div>
-        <div class="button" ><a routerLink="contact" >Other</a></div>
+        <div class="navigationLinks" ><a routerLink="home">Home</a></div>
+        <div class="navigationLinks" ><a routerLink="contact" >Other</a></div>
         <div id="signedIn_WelcomeMessage">Welcome: Montaniz</div>
     </div>
 </div>
 <!--
+    //READ USER INPUT ANGULAR !!!!
     if(
      !username.$pristine && !password.$pristine && 
      username.$valid && password.$valid) &&

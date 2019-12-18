@@ -7,26 +7,32 @@
     
 }
 
-#button_container{
+#nav_container{
     bottom: 0px;
     position:absolute;
     display:inline-flex;
     flex-direction: row;
 }
 
-.button{
-    margin:0rem 7em 0rem 0em;
+.navigationLinks{
+    margin:0rem 7em 0rem 5em;
 }
 
-#signInComponent{
+form{
     display:none;
 }
 
-#signIn_dropDown_container:hover  #signInComponent{
+#signIn_dropDown_container:hover  form{
     display:block;
     position:absolute;
 }
 
+input{ display:block; }
+
+#signInButton{
+    border:none;
+    background-color:#3c98ce;
+}
 
 /*#signedIn_WelcomeMessage{
     display:none;

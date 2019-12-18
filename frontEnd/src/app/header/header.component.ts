@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Account} from '../account';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -11,14 +11,20 @@ export class HeaderComponent implements OnInit {
   constructor(){}
   ngOnInit() {}
   
-
-   //form:HTMLElement  = document.getElementById("form");
-   
-  submit():void{
-    alert("submit function working.");
+  onSubmit(login: NgForm){
+    alert("hi");
   }
-  //username:String=document.getElementById("username").value;
+  validate(){
+     
+  } 
 
-  
+  /*if username && password valid
+-- > host:.signInButton{
+      border:transparent;
+      border-radius:30px;
+      background-color:green;
+    }
+*/  
+
 
 }
