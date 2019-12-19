@@ -15,7 +15,8 @@ export class HeaderComponent implements OnInit {
     alert("hi");
   }
   validate(){
-     
+     if(angular.equals(username,"")&&"".equals(password)){}
+    alert("hi");
   } 
 
   /*if username && password valid
