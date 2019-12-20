@@ -14,9 +14,16 @@ export class HeaderComponent implements OnInit {
   onSubmit(login: NgForm){
     alert("hi");
   }
-  validate(){
-     if(angular.equals(username,"")&&"".equals(password)){}
-    alert("hi");
+  emptyUsername='';
+  emptyPassword='';
+  changeStyle(){
+    alert("wassup");
+  }
+  validate(username:string,password:string){
+     if(this.emptyUsername==username||this.emptyPassword==password){
+       this.changeStyle()
+     }
+     else alert("bye");
   } 
 
   /*if username && password valid

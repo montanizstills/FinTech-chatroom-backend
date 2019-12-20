@@ -3,9 +3,9 @@
         <div id="signInText" class="button">
             <div id=signIn_dropDown_container>
                 <button id="signInButton" (submit)="onSubmit()" ([ngStyle])="validater()" >Sign In</button>
-                <form #login="ngForm" (keyup.enter)="validate()">
-                    <input type="text" ng-model="username" placeholder="Please enter your username" ngModel>
-                    <input type="text" ng-model="password" placeholder="Please enter your password" ngModel>
+                <form #login="ngForm"(keyup.enter)="validate(username.value,password.value)">
+                    <input type="text" #username placeholder="Please enter your username">
+                    <input type="text" #password placeholder="Please enter your password">
                 </form>
             </div>
         </div>
