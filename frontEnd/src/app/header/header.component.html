@@ -1,11 +1,20 @@
 <div id="container">
     <div id="nav_container">
-        <div id="signInText" class="button">
+        <div id="signInText" class="button" class="navigationLinks">
             <div id=signIn_dropDown_container>
-                <button id="signInButton" (submit)="onSubmit()" ([ngStyle])="validater()" >Sign In</button>
-                <form #login="ngForm"(keyup.enter)="validate(username.value,password.value)">
-                    <input type="text" #username placeholder="Please enter your username">
-                    <input type="text" #password placeholder="Please enter your password">
+                <button id="signInButton" (submit)="onSubmit()" 
+                        [ngStyle]="{
+                            'background-color':
+                                signed?'green':'#3c98ce',
+                            'border-radius':
+                                signed?'5px':'0em'}">Sign In
+                </button>
+                <form #login="ngForm" 
+                (keyup)="validate(username.value,password.value)"
+                (blur)="login.reset()"
+                (focus)="validate(username.value,password.value)">
+                    <input type="text" #username placeholder="username">
+                    <input type="text" #password placeholder="password">
                 </form>
             </div>
         </div>

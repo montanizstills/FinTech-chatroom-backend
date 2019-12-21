@@ -15,7 +15,7 @@
 }
 
 .navigationLinks{
-    margin:0rem 7em 0rem 5em;
+    margin:0rem 9em 0rem .3em;
 }
 
 form{
@@ -30,6 +30,8 @@ form{
 input{ display:block; }
 
 #signInButton{
+    font-size: 1em;
+    font-weight: bolder;
     border:none;
     background-color:#3c98ce;
 }

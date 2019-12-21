@@ -11,28 +11,22 @@ export class HeaderComponent implements OnInit {
   constructor(){}
   ngOnInit() {}
   
-  onSubmit(login: NgForm){
-    alert("hi");
-  }
+  // onSubmit(login: NgForm){
+  //   create accountObject;
+  // }
+  
   emptyUsername='';
   emptyPassword='';
-  changeStyle(){
-    alert("wassup");
-  }
+  signed=false;
+ 
   validate(username:string,password:string){
-     if(this.emptyUsername==username||this.emptyPassword==password){
-       this.changeStyle()
+     if(this.emptyUsername!=username&&this.emptyPassword!=password){
+        this.signed=true;
      }
-     else alert("bye");
+     else{this.signed=false;}
+  }
+  reset(){
+    
   } 
-
-  /*if username && password valid
--- > host:.signInButton{
-      border:transparent;
-      border-radius:30px;
-      background-color:green;
-    }
-*/  
-
 
 }
