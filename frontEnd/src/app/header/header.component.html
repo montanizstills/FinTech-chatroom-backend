@@ -2,38 +2,27 @@
     <div id="nav_container">
         <div id="signInText" class="button" class="navigationLinks">
             <div id=signIn_dropDown_container>
-                <button id="signInButton" (submit)="onSubmit()" 
+                <button id="signInButton" type="submit" 
                         [ngStyle]="{
                             'background-color':
-                                signed?'green':'#3c98ce',
+                                signed?'green':'transparent',
                             'border-radius':
                                 signed?'5px':'0em'}">Sign In
                 </button>
-                <form #login="ngForm" 
+                <form (ngSubmit)="console.log(login.value)" #login="ngForm"
                 (keyup)="validate(username.value,password.value)"
-                (blur)="login.reset()"
-                (focus)="validate(username.value,password.value)">
-                    <input type="text" #username placeholder="username">
-                    <input type="text" #password placeholder="password">
+                (blur)="validate('','')"
+                >
+                    <input type="text" #username >
+                    <input type="text" #password >
                 </form>
             </div>
         </div>
-        <div class="navigationLinks" ><a routerLink="home">Home</a></div>
-        <div class="navigationLinks" ><a routerLink="contact" >Other</a></div>
+        <div class="navigationLinks"><a routerLink="home">Home</a></div>
+        <div class="navigationLinks"><a routerLink="contact" >Other</a></div>
         <div id="signedIn_WelcomeMessage">Welcome: Montaniz</div>
     </div>
 </div>
-<!--
-    //READ USER INPUT ANGULAR !!!!
-    if(
-     !username.$pristine && !password.$pristine && 
-     username.$valid && password.$valid) &&
-     email.$invalid
-    -- > convert "signIn" to <button>signUp</button> and turn it green
-    else
-    -- > convert "signIn" to <button>signUp</button> and turn it red
-    -- > signUp() //pass username && password, prefill with {{username,password}}
--->
 <!--
     // enter username and password
     // onSubmit() -- > create new account();
