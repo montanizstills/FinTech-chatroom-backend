@@ -14,15 +14,13 @@ export class HeaderComponent implements OnInit {
   // onSubmit(login: NgForm){
   //   create accountObject;
   // }
+  
   username='';
   password='';
   emptyUsername='';
   emptyPassword='';
   signed=false;
   
-  alert(message){
-    alert(message);
-  }
   validate(username:string,password:string){
     this.username=username;
     this.password=password; 
@@ -32,11 +30,8 @@ export class HeaderComponent implements OnInit {
      else{
        this.signed=false;}
   }
-  login:NgForm;
-onSubmit(){
-  alert("form submitted");
-}
-}
 
-
-//signed=validate()
+  onSubmit(login:NgForm){
+    alert(login.submitted+""+login.valid);
+  }
+}

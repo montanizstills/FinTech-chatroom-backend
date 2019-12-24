@@ -1,0 +1,11 @@
+#container{
+    display:inline-flex;
+    background-color: #3c98ce;
+    bottom:0px;
+    position: absolute;
+    min-height: 8vh;
+    width:100%
+}
+p{
+    color:black;
+}

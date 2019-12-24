@@ -1,50 +1,22 @@
-#container{
+#nav_container{
+    position: relative;
+    display: flex;
+    flex-direction: row;
     background-color: #3c98ce;
     border-radius: 5px;
     min-height:17vh;
     width:100%;
-    position:relative;
-    
-}
-
-#nav_container{
-    bottom: 0px;
-    position:absolute;
-    display:inline-flex;
-    flex-direction: row;
 }
 
 .navigationLinks{
-    margin:0rem 8em 0rem .4em;
+    margin:0rem 7em 0rem .4em;
+    /* bottom:0px; */
 }
 
-form{
-    display:none;
-}
-
-#signIn_dropDown_container:hover  form{
-    display:block;
-    position:absolute;
-}
-
-input{ display:block; }
+form{display: block;}
+input{display: block;}
 
 #signInButton{
     font-size: 1em;
-    font-weight: bolder;
     border:none;
-    background-color:#3c98ce;
 }
-/*
-#signedIn_WelcomeMessage{
-    display:none;
-}
-input:focus{ 
-    display:block;
-    position:absolute; 
-} 
-#signInButton:focus form{
-    display:block;
-    position:absolute;
-} 
-*/

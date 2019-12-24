@@ -1,33 +1,30 @@
-<div id="container">
-    <div id="nav_container">
-        <div id="signInText" class="button" class="navigationLinks">
-            <div id=signIn_dropDown_container>
-                <button id="signInButton" type="submit" 
-                        [ngStyle]="{
-                            'background-color':
-                                signed?'green':'transparent',
-                            'border-radius':
-                                signed?'5px':'0em'}">Sign In
+<div id="nav_container">
+        <div id=signIn_dropDown_container class="navigationLinks"> 
+            <form id="login"  #login="ngForm" (ngSubmit)="onSubmit(login)" (keyup)="validate(username.value,password.value)">
+                <button [disabled]="login.invalid" id="signInButton" type="submit" 
+                    [ngStyle]="{
+                    'background-color':signed?'green':'transparent',
+                    'border-radius':signed?'5px':'0em'}">
+                SignIn
                 </button>
-                <form (ngSubmit)="console.log(login.value)" #login="ngForm"
-                (keyup)="validate(username.value,password.value)"
-                (blur)="validate('','')"
-                >
-                    <input type="text" #username >
-                    <input type="text" #password >
-                </form>
-            </div>
+                <input class="fields" type="text" #username required minlength="4">
+                <input class="fields" type="text" #password required>
+            </form>
         </div>
-        <div class="navigationLinks"><a routerLink="home">Home</a></div>
-        <div class="navigationLinks"><a routerLink="contact" >Other</a></div>
-        <div id="signedIn_WelcomeMessage">Welcome: Montaniz</div>
-    </div>
+    <div class="navigationLinks"><a routerLink="home">Home</a></div>
+    <div class="navigationLinks"><a routerLink="contact" >Other</a></div>
+    <div id="signedIn_WelcomeMessage">Welcome:</div>
 </div>
+
 <!--
     // enter username and password
     // onSubmit() -- > create new account();
     // store account data in root? app-component
 -->
+<!-- template: '
+        <app-header></app-header>
+        //body stuff ! 
+    ' -->
 <!--
     // if not signed in && text in chatbox
     -- > disableChatBox()
