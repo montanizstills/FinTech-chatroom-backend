@@ -1,0 +1,49 @@
+Runnable: Takes no arguments, returns no value(s):
+//Runnable runnable = ()->System.out.println;
+
+Consumer: Takes one argument, returns no value(s):
+//Consumer consumer = ()->System.out.println(str);
+//consumer.accept("Hello World");
+
+Supplier: Takes no arguments, returns some one value:
+//     Supplier<String> supplier = ()->"Hello world.";
+//     String result = supplier.get();
+//	   System.out.println(result);
+
+Function: Takes one argument, returns some one value:
+//		Function<Date,String> function;
+//		function = (dateObject)->String.valueOf(dateObject);
+//		String result = function.apply(new Date());
+//		System.out.println(result);
+
+Factory Methods
+Enums
+What are node children
+
+
+Amazon AWS DB info:
+DB name: chatTix
+user: admin
+pass: password123
+
+controller responsible for request and responses.
+service is responsible for data manipulation
+repository is responsible for (DAO) communication with database and save/persist information, database manipulation
+
+request --> controller --> service() --> respository -- > database
+
+angular route to back end
+
+UUID is better than id
+
+ask James about other types of functional interfaces.
+
+Things to bring up to Leon:
+1.) Financial Object Comment
+
+ResponseEntities are the response sent back to front end.
+
+
+Do not deploy until Entities are completed.
+
+

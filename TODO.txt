@@ -1,0 +1,11 @@
+1.) Create a sign-up component.
+2.) Create a "Friends" component 
+	-- where you can see online friends: online flag pushed to DB
+	-- click on a friend and send him/her a message: opens conversation.
+3.) Create a "Forgot Username/Password" component page: 
+	-- accountService.findByUsername() -> setPassword(newPassword) 
+	-- newPass.equal(confirmPass) front-end validation
+4.) Merge anuglar and back-end together
+5.) deploy service on AWS
+6.) repoint github.io to aws site.
+7.) regardless of Earnings and other, YOU MUST GET A WORKING version of Quote deployed.
