@@ -8,14 +8,15 @@ import java.util.ArrayList;
 
 
 @Entity
+//@Table(name = "account")
 public class Account {
 
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "uuid") @GenericGenerator(name = "uuid", strategy = "uuid2") private String id;
     private String username;
     private String password;
     private String email;
-   @ManyToOne(targetEntity = Account.class)
-    private ArrayList<Account> friends;
+//   @ManyToOne(targetEntity = Account.class)
+//    private ArrayList<Account> friends = new ArrayList<>();
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "uuid") @GenericGenerator(name = "uuid", strategy = "uuid2") private String token;
 
     public Account(){}
@@ -68,25 +69,13 @@ public class Account {
         this.email = email;
     }
 
+//    public ArrayList<Account> getFriends() {
+//        return friends;
+//    }
 
-    public ArrayList<Account> getFriends() {
-        return friends;
-    }
+//    public ArrayList<Account> addFriend(Account friend){
+//        this.getFriends().add(friend);
+//        return getFriends();
+//    }
 
-    public ArrayList<Account> addFriend(Account friend){
-        this.getFriends().add(friend);
-        return getFriends();
-    }
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "id='" + id + '\'' +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", email='" + email + '\'' +
-                ", friends=" + friends +
-                ", token='" + token + '\'' +
-                '}';
-    }
 }

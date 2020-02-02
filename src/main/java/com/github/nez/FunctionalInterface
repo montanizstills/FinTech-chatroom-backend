@@ -46,4 +46,7 @@ ResponseEntities are the response sent back to front end.
 
 Do not deploy until Entities are completed.
 
+I want to access the same Entity Manager instance across all repositories.
+How can I best access the abstracted EntityManager abstractd by the @Entity bean?
+
 
