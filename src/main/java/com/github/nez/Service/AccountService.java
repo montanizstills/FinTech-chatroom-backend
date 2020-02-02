@@ -4,7 +4,10 @@ import com.github.nez.Model.Account;
 import com.github.nez.Model.AccountBuilder;
 import com.github.nez.Model.QAccount;
 import com.github.nez.Respository.AccountRepository;
+import com.querydsl.core.QueryFactory;
+import com.querydsl.core.support.QueryBase;
 import com.querydsl.jpa.impl.JPAQuery;
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,11 +34,17 @@ public class AccountService {
 
     }
 
-    public Account login(Account account){
-        JPAQuery query = new JPAQuery(this.entityManager);
-        QAccount qAccount = QAccount.account;
-        account =
-      return null;
+    public Account login(Account incomingLoginAttempt){
+        JPAQueryFactory jpaQueryFactory = new JPAQueryFactory(this.entityManager);
+        QAccount accountPersistentBean = QAccount.account;
+        incomingLoginAttempt = jpaQueryFactory
+                .selectFrom(accountPersistentBean)
+                .where(
+                        accountPersistentBean.username.eq(incomingLoginAttempt.getUsername()),
+                        accountPersistentBean.password.eq(incomingLoginAttempt.getPassword())
+                )
+                .fetchOne();
+      return incomingLoginAttempt;
     }
 
 //    public Account addFriend(String ourIds) {
