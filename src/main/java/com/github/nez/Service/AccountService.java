@@ -4,6 +4,7 @@ import com.github.nez.Model.Account;
 import com.github.nez.Model.AccountBuilder;
 import com.github.nez.Respository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -11,7 +12,8 @@ import javax.persistence.EntityManager;
 @Service
 public class AccountService {
 
-    final private EntityManager entityManager;
+    @Qualifier("myentitymanager")
+   final private EntityManager entityManager;
     private AccountRepository accountRepository;
 
     @Autowired

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface AccountRepository extends CrudRepository<Account,String>{
 
-    @Query(nativeQuery = true, value = "SELECT * FROM Account a WHERE a.username=:username and a.password=:password")
+    @Query( value = "SELECT a.id FROM Account a WHERE a.username=:username and a.password=:password")
     Account findIdByUserPass(@Param("username") String username, @Param("password") String password);
 
 
