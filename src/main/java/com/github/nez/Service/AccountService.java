@@ -2,19 +2,11 @@ package com.github.nez.Service;
 
 import com.github.nez.Model.Account;
 import com.github.nez.Model.AccountBuilder;
-import com.github.nez.Model.QAccount;
 import com.github.nez.Respository.AccountRepository;
-import com.querydsl.core.QueryFactory;
-import com.querydsl.core.support.QueryBase;
-import com.querydsl.jpa.impl.JPAQuery;
-import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.ArrayList;
 
 @Service
 public class AccountService {
@@ -31,20 +23,21 @@ public class AccountService {
     public Account createAccount(Account account) {
         account = new AccountBuilder().setUsername(account.getUsername()).setPassword(account.getPassword()).setEmail(account.getEmail()).createAccount();
         return this.accountRepository.save(account);
-
     }
 
     public Account login(Account incomingLoginAttempt){
-        JPAQueryFactory jpaQueryFactory = new JPAQueryFactory(this.entityManager);
-        QAccount accountPersistentBean = QAccount.account;
-        incomingLoginAttempt = jpaQueryFactory
-                .selectFrom(accountPersistentBean)
-                .where(
-                        accountPersistentBean.username.eq(incomingLoginAttempt.getUsername()),
-                        accountPersistentBean.password.eq(incomingLoginAttempt.getPassword())
-                )
-                .fetchOne();
-      return incomingLoginAttempt;
+//        JPAQueryFactory jpaQueryFactory = new JPAQueryFactory(this.entityManager);
+//        QAccount accountPersistentBean = QAccount.account;
+//        incomingLoginAttempt = jpaQueryFactory
+//                .selectFrom(accountPersistentBean)
+//                .where(
+//                        accountPersistentBean.username.eq(incomingLoginAttempt.getUsername()),
+//                        accountPersistentBean.password.eq(incomingLoginAttempt.getPassword())
+//                )
+//                .fetchOne();
+//      return incomingLoginAttempt;
+        return accountRepository.findIdByUserPass(incomingLoginAttempt.getUsername(),incomingLoginAttempt.getPassword());
+
     }
 
 //    public Account addFriend(String ourIds) {

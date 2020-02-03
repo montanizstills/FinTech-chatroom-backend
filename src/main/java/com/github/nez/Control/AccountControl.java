@@ -31,16 +31,15 @@ public class AccountControl {
     }
 
     @RequestMapping(value="/login", method= RequestMethod.POST)
-    public ResponseEntity<?> login(@RequestBody String username, String password){
-       Account account = new AccountBuilder().setUsername(username).setPassword(password).createAccount();
+    public ResponseEntity<?> login(@RequestBody Account account){
        account = accountService.login(account);
-        ResponseEntity<?> responseEntity = new ResponseEntity<>(account.getEmail(), HttpStatus.OK);
+        ResponseEntity<?> responseEntity = new ResponseEntity<>(account, HttpStatus.OK);
         return responseEntity;
     }
 
     @RequestMapping(value="find-account", method=RequestMethod.GET)
     public ResponseEntity find(@RequestBody Account account){
-        accountService.find(account.getId());
+        account = accountService.find(account.getId());
         ResponseEntity responseEntity = new ResponseEntity<>(account,HttpStatus.OK);
         return responseEntity;
     }
