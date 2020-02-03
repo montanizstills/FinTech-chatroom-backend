@@ -5,6 +5,7 @@ import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -15,8 +16,8 @@ public class Account {
     private String username;
     private String password;
     private String email;
-//   @ManyToOne(targetEntity = Account.class)
-//    private ArrayList<Account> friends = new ArrayList<>();
+    @OneToMany(targetEntity = Account.class)
+    private List<Account> friends;
     @GeneratedValue(strategy = GenerationType.IDENTITY, generator = "uuid") @GenericGenerator(name = "uuid", strategy = "uuid2") private String token;
 
     public Account(){}

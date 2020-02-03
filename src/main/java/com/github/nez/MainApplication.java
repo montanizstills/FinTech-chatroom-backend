@@ -11,13 +11,7 @@ import java.lang.reflect.Method;
 @SpringBootApplication
 public class MainApplication{
 
-
-
 	public static void main(String args []) {
 		SpringApplication.run(MainApplication.class,args);
-
-
-//		String message = "Welcome back Richard, $ubs.getCompanyName has changed by $ubs.getChange %.";
-//		System.out.println( new MainApplication().decipherMessage(message));
 	}
 }//End of Class
