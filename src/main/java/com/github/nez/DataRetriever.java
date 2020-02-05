@@ -22,6 +22,7 @@ public class DataRetriever {
 
                 try {
                     ObjectMapper objectMapper = new ObjectMapper();
+                    System.out.println("The json Object is "+quote.getJsonObject());
                     quote = (Quote) objectMapper.readValue(quote.getJsonObject().toString(),quote.getObjectClass());
                 }
                 catch (Exception e) {
@@ -29,6 +30,7 @@ public class DataRetriever {
                 }
 
                 try {
+                    System.out.println(serviceName);
                     Method method = quote.getClass().getMethod(serviceName);
                     word=method.invoke(quote, null).toString();
                     response += " "+word;

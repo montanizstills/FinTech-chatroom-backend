@@ -1,8 +1,9 @@
 package com.github.nez.FinancialObjects.SpecializedFinanicalObjectShort;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.github.nez.FinancialObjects.FinancialObject;
 import com.github.nez.FinancialObjects.FinancialObjectInterface;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Quote extends FinancialObject implements FinancialObjectInterface {
     private String symbol;
     private String companyName;

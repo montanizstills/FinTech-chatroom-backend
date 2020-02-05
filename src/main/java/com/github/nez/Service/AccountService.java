@@ -12,14 +12,14 @@ import javax.persistence.EntityManager;
 @Service
 public class AccountService {
 
-    @Qualifier("myentitymanager")
-   final private EntityManager entityManager;
+//    @Qualifier("myentitymanager")
+//   final private EntityManager entityManager;
     private AccountRepository accountRepository;
 
     @Autowired
-    public AccountService(AccountRepository accountRepository, EntityManager entityManager) {
+    public AccountService(AccountRepository accountRepository ) {
         this.accountRepository = accountRepository;
-        this.entityManager = entityManager;
+//        this.entityManager = entityManager;
     }
 
     public Account createAccount(Account account) {

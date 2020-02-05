@@ -16,7 +16,7 @@ Function: Takes one argument, returns some one value:
 //		String result = function.apply(new Date());
 //		System.out.println(result);
 
-Factory Methods
+Factory Methods: returns a new Instance. x -> new X();
 Enums
 What are node children
 
@@ -43,10 +43,11 @@ Things to bring up to Leon:
 
 ResponseEntities are the response sent back to front end.
 
-
 Do not deploy until Entities are completed.
 
 I want to access the same Entity Manager instance across all repositories.
 How can I best access the abstracted EntityManager abstractd by the @Entity bean?
+
+Docker and Kubernetes
 
 

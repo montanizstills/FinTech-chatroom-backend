@@ -33,8 +33,8 @@ public class Server implements Runnable {
                 in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 String input = in.readLine();
                 System.out.println("client say's: "+input);
-                String response = decipherMessage(input);
-                out.write("server say's: "+response);
+//                String response = decipherMessage(input);
+//                out.write("server say's: "+response);
             }
         } catch (Exception e) {
             throw new Error("could not listen on port: " + serverSocket.getLocalPort());
@@ -52,38 +52,38 @@ public class Server implements Runnable {
         }
     }
 
-    public String decipherMessage(String message) {
-        String response = "";
-        String[] messageArray = message.split(" ");
-        for (String word : messageArray) {
-            if (word.matches("\\$[a-zA-Z]+\\.[a-zA-Z]+")) {
-                String[] requestArray = word.split("[$|.]");
-                String companyName = requestArray[1];
-                String serviceName = requestArray[2];
-
-                Quote quote = new Quote();
-                quote.populateJsonObject(companyName, "quote");
-
-                try {
-                    ObjectMapper objectMapper = new ObjectMapper();
-                    quote = (Quote) objectMapper.readValue(quote.getJsonObject().toString(), quote.getObjectClass());
-                } catch (Exception e) {
-                    System.out.println("Something is off in the ObjectMapping.");
-                }
-
-                try {
-                    Method method = quote.getClass().getMethod(serviceName);
-                    response += " " + method.invoke(quote, null).toString();
-                } catch (Exception e) {
-                    System.out.println("Something is off getting the method. Returning word");
-                    response += " " + word;
-                }
-            } else {
-                response += " " + word;
-            }
-        }
-        return response;
-    }
+//    public String decipherMessage(String message) {
+//        String response = "";
+//        String[] messageArray = message.split(" ");
+//        for (String word : messageArray) {
+//            if (word.matches("\\$[a-zA-Z]+\\.[a-zA-Z]+")) {
+//                String[] requestArray = word.split("[$|.]");
+//                String companyName = requestArray[1];
+//                String serviceName = requestArray[2];
+//
+//                Quote quote = new Quote();
+//                quote.populateJsonObject(companyName, "quote");
+//
+//                try {
+//                    ObjectMapper objectMapper = new ObjectMapper();
+//                    quote = (Quote) objectMapper.readValue(quote.getJsonObject().toString(), quote.getObjectClass());
+//                } catch (Exception e) {
+//                    System.out.println("Something is off in the ObjectMapping.");
+//                }
+//
+//                try {
+//                    Method method = quote.getClass().getMethod(serviceName);
+//                    response += " " + method.invoke(quote, null).toString();
+//                } catch (Exception e) {
+//                    System.out.println("Something is off getting the method. Returning word");
+//                    response += " " + word;
+//                }
+//            } else {
+//                response += " " + word;
+//            }
+//        }
+//        return response;
+//    }
 
     public static void main(String args []) {
         Server server = new Server();
