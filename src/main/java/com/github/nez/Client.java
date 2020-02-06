@@ -11,15 +11,17 @@ public class Client implements Runnable {
     PrintWriter out;
     BufferedReader in;
     Socket socket;
-    int portnumber = 8081;
+    int portNumber = 8081;
 
-    public Client(Socket socket){
-        this.socket=socket;
+    public Client(){
+        establishConnection();
     }
 
     public void establishConnection(){
         try{
-            this.socket = new Socket("localhost",portnumber);
+            this.socket = new Socket("localhost",portNumber);
+            System.out.println(this.socket);
+
         }
         catch(Exception e ){
             System.err.println("Fatal Connection error!");
@@ -29,15 +31,19 @@ public class Client implements Runnable {
 
     @Override
     public void run(){
-        establishConnection();
+        speak();
+    }
+
+    private void speak() {
         try{
-             this.out = new PrintWriter(socket.getOutputStream(),true);
-             this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-             while(!socket.isClosed()){
-                 String input = this.clientWriter.nextLine();
-                 System.out.println("you say: "+input);
-                 out.write(input);
-             }
+            this.out = new PrintWriter(socket.getOutputStream(),true);
+            this.in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            while(!socket.isClosed()){
+                String input = this.clientWriter.nextLine();
+                System.out.println("you say: "+input);
+                out.write(input);
+                out.flush();
+            }
         }
         catch(Exception e ){
             System.out.println("Error running client...");
@@ -45,7 +51,7 @@ public class Client implements Runnable {
     }
 
     public static void main(String[] args) {
-        Client client = new Client(new Socket());
+        Client client = new Client();
         client.run();
     }
 

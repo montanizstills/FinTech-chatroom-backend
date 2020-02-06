@@ -17,24 +17,17 @@ public class Server implements Runnable {
     private BufferedReader in;
     private Socket socket;
     boolean listening = true;
+    private ArrayList<Client> connectedClients;
 
     public Server() {
     }
 
     public void run() {
-
         try {
             this.serverSocket = new ServerSocket(8081);
-            System.out.println("Listening on port: "+this.serverSocket.getLocalPort());
-            this.socket=serverSocket.accept();
             while (listening) {
-               // acceptClients();
-                out = new PrintWriter(socket.getOutputStream(), true);
-                in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                String input = in.readLine();
-                System.out.println("client say's: "+input);
-//                String response = decipherMessage(input);
-//                out.write("server say's: "+response);
+                this.socket = serverSocket.accept();
+                in = socket.getInputStream()
             }
         } catch (Exception e) {
             throw new Error("could not listen on port: " + serverSocket.getLocalPort());
@@ -43,15 +36,26 @@ public class Server implements Runnable {
 
     private void acceptClients() {
         try {
-            Client client = new Client(this.socket);
-            Thread thread = new Thread(client);
-            thread.start();
+
         }
         catch (Exception e) {
             System.out.println("Accept failed on: " + this.serverSocket.getLocalPort());
         }
     }
 
+    public void speak(){
+        try{
+            out = new PrintWriter(socket.getOutputStream(), true);
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            String response=in.readLine();
+            if(!"".equals(response)){
+                System.out.println(response);
+            }
+        }
+        catch(Exception e){
+            throw new Error(e);
+        }
+    }
 //    public String decipherMessage(String message) {
 //        String response = "";
 //        String[] messageArray = message.split(" ");

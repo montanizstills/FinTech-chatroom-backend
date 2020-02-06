@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "account")
+//@Table(name = "account")
 public class Account {
 
     @Id@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "uuid") @GenericGenerator(name = "uuid", strategy = "uuid2") private String id;
