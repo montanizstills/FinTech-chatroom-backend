@@ -1,16 +1,8 @@
 package com.github.nez;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.nez.FinancialObjects.SpecializedFinanicalObjectShort.Quote;
+import com.github.nez.financialobjects.MyJsonObject;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.lang.reflect.Array;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 @SpringBootApplication
@@ -32,5 +24,6 @@ public class MainApplication{
 
 
 		SpringApplication.run(MainApplication.class,args);
+
 	}
 }//End of Class

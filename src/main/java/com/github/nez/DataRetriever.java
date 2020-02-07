@@ -2,7 +2,7 @@ package com.github.nez;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.nez.FinancialObjects.SpecializedFinanicalObjectShort.Quote;
+import com.github.nez.financialobjects.SpecializedFinanicalObjectShort.Quote;
 
 import java.lang.reflect.Method;
 
