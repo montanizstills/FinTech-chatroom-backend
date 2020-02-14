@@ -2,7 +2,7 @@ package com.github.nez.financialobjects;
 
 import org.json.JSONObject;
 
- abstract public class  FinancialObject  implements FinancialObjectInterface {
+  public class  FinancialObject  implements FinancialObjectInterface {
 
    private JSONObject jsonObject;
 

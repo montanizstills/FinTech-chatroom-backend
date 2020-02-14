@@ -4,6 +4,10 @@ import com.github.nez.financialobjects.MyJsonObject;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.FileReader;
+import java.io.Reader;
+import java.util.stream.Stream;
+
 
 @SpringBootApplication
 public class MainApplication{
@@ -23,7 +27,8 @@ public class MainApplication{
 //		}).map();
 
 
-		SpringApplication.run(MainApplication.class,args);
+//		SpringApplication.run(MainApplication.class,args);
 
+		System.out.println("Hi, $aapl.quote.getCompanyName is slowly becoming your favorite company.");
 	}
 }//End of Class
