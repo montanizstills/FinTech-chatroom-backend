@@ -1,3 +1,5 @@
+package io.github.montanizstills;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -29,13 +31,11 @@ public class Server {
 
     /**
      * Will attempt to establish a connection between the server and the client.
-     *
-     * @return a new socket representing the connection between the server and client.
      */
-    private Socket accept(Integer port) {
+    private void accept(Integer port) {
         try {
             this.serverSocket = new ServerSocket(port);
-            return this.socket = this.serverSocket.accept();
+            this.socket = this.serverSocket.accept();
         } catch (IOException e) {
             throw new Error(e);
         }
@@ -43,11 +43,9 @@ public class Server {
 
     /**
      * Facade -- accept(int port)
-     *
-     * @return a new socket representing the connection between the server and client.
      */
-    public Socket accept() {
-        return this.accept(this.port);
+    public void accept() {
+        this.accept(this.port);
     }
 
     /**
@@ -56,14 +54,13 @@ public class Server {
      * @return The decoded String version of the DataInputStream's contents.
      */
     public String read() {
-        String message = null;
+        String message;
         try {
             this.dataInputStream = new DataInputStream(this.socket.getInputStream());
             message = this.dataInputStream.readUTF();
         } catch (IOException e) {
             throw new Error(e);
         }
-        this.close();
         return message;
     }
 
@@ -101,8 +98,14 @@ public class Server {
 
     public static void main(String[] args) {
         Server server = new Server(1234);
+        String message;
         server.accept();
-        System.out.println(server.read());
+        while (true) {
+            System.out.println(message=server.read());
+            if ("q".equalsIgnoreCase(message)){
+                server.close();
+            }
+        }
     }
 
 }

@@ -13,4 +13,26 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
+    <!--Project dependencies -->
+    <dependencies>
+        <dependency>
+            <groupId>com.github.git-leon</groupId>
+            <artifactId>exceptional-functional-interfaces</artifactId>
+            <version>1.2</version>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+        <repository>
+            <id>git-leon-exceptional-functional-interface</id>
+            <url>https://packagecloud.io/git-leon/utils/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
 </project>

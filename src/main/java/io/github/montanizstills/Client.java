@@ -1,3 +1,5 @@
+package io.github.montanizstills;
+
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
@@ -8,7 +10,7 @@ public class Client {
     private DataOutputStream dataOutputStream;
 
 
-    public void close(){
+    public void close() {
         try {
             this.dataOutputStream.close();
             this.socket.close();
@@ -17,7 +19,7 @@ public class Client {
         }
     }
 
-    public void write(String message){
+    public void write(String message) {
         try {
             this.dataOutputStream = new DataOutputStream(this.socket.getOutputStream());
             this.dataOutputStream.writeUTF(message);
@@ -42,12 +44,16 @@ public class Client {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Write a message here:\n");
-        String message = scanner.nextLine();
         Client client = new Client();
         try {
-            client.socket = new Socket("localhost",1234);
-            client.write(message);
+            String message = null;
+            client.socket = new Socket("localhost", 1234);
+            while (!"q".equalsIgnoreCase(message)) {
+                System.out.println("Write a message here:\n");
+                message = scanner.nextLine();
+                client.write(message);
+            }
+
         } catch (IOException e) {
             throw new Error(e);
         }
